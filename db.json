@@ -1,0 +1,139 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "meghana",
+      "email": "meghana@gmail.com",
+      "password": "maggi123"
+    },
+    {
+      "name": "vikram",
+      "email": "vikaram@gmail.com",
+      "password": "vik123",
+      "id": "0hM7wMrQt4g"
+    },
+    {
+      "name": "maggi",
+      "email": "maggi@gmail.com",
+      "password": "Maggi123",
+      "id": "gE0_OgiQ1MU"
+    },
+    {
+      "name": "Meghana Vaddi",
+      "email": "meghanavaddi@gmail.com",
+      "password": "Maggi2402",
+      "id": "tE4P4Bpc5S8"
+    }
+  ],
+  "cars": [
+    {
+      "id": "1",
+      "name": "Creta",
+      "brand": "Hyundai",
+      "model": "Creta SX",
+      "year": 2025,
+      "price": 1850000,
+      "fuel": "Petrol",
+      "transmission": "Automatic",
+      "color": "White",
+      "image": "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6"
+    },
+    {
+      "id": "2",
+      "name": "Fortuner",
+      "brand": "Toyota",
+      "model": "Fortuner Legender",
+      "year": 2025,
+      "price": 4500000,
+      "fuel": "Diesel",
+      "transmission": "Automatic",
+      "color": "Black",
+      "image": "https://images.unsplash.com/photo-1555215695-3004980ad54e"
+    },
+    {
+      "id": "4",
+      "name": "City",
+      "brand": "Honda",
+      "model": "City ZX",
+      "year": 2024,
+      "price": 1700000,
+      "fuel": "Petrol",
+      "transmission": "Automatic",
+      "color": "Red",
+      "image": "https://images.unsplash.com/photo-1553440569-bcc63803a83d"
+    },
+    {
+      "id": "5",
+      "name": "XUV700",
+      "brand": "Mahindra",
+      "model": "XUV700 AX7",
+      "year": 2025,
+      "price": 2500000,
+      "fuel": "Diesel",
+      "transmission": "Automatic",
+      "color": "Grey",
+      "image": "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b"
+    },
+    {
+      "id": "6",
+      "name": "Harrier",
+      "brand": "Tata",
+      "model": "Harrier XZA",
+      "year": 2025,
+      "price": 2200000,
+      "fuel": "Diesel",
+      "transmission": "Automatic",
+      "color": "Black",
+      "image": "https://images.unsplash.com/photo-1503376780353-7e6692767b70"
+    },
+    {
+      "id": "7",
+      "name": "Verna",
+      "brand": "Hyundai",
+      "model": "Verna SX",
+      "year": 2024,
+      "price": 1600000,
+      "fuel": "Petrol",
+      "transmission": "Manual",
+      "color": "Silver",
+      "image": "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2"
+    },
+    {
+      "id": "8",
+      "name": "Slavia",
+      "brand": "Skoda",
+      "model": "Slavia Style",
+      "year": 2025,
+      "price": 1800000,
+      "fuel": "Petrol",
+      "transmission": "Automatic",
+      "color": "White",
+      "image": "https://images.unsplash.com/photo-1504215680853-026ed2a45def"
+    },
+    {
+      "id": "9",
+      "name": "Seltos",
+      "brand": "Kia",
+      "model": "Seltos GTX",
+      "year": 2025,
+      "price": "210000",
+      "fuel": "Petrol",
+      "transmission": "Automatic",
+      "color": "Blue",
+      "image": "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7"
+    },
+    {
+      "id": "10",
+      "name": "Thar",
+      "brand": "Mahindra",
+      "model": "Thar LX",
+      "year": 2025,
+      "price": 1900000,
+      "fuel": "Diesel",
+      "transmission": "Manual",
+      "color": "Green",
+      "image": "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
