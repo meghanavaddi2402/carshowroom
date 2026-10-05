@@ -5,48 +5,47 @@ import Cars from "../pages/Cars";
 import CarDetails from "../pages/CarDetails";
 import AddCar from "../pages/AddCar";
 import EditCar from "../pages/EditCar";
-
-import Register from "../pages/Register";
+import Favorites from "../pages/Favorites";
 import Login from "../pages/Login";
+import Register from "../pages/Register";
 import Logout from "../pages/Logout";
 
 import ProtectedRoute from "./ProtectedRoute";
-import Favorites from "../pages/Favorites";
 
 function AppRoutes() {
-
   return (
-
     <Routes>
 
-      {/* Public Routes */}
+      {/* PUBLIC ROUTES */}
 
-      <Route
-        path="/"
-        element={<Home />}
-      />
+      <Route path="/" element={<Home />} />
+
+      <Route path="/login" element={<Login />} />
+
+      <Route path="/register" element={<Register />} />
+
+      <Route path="/logout" element={<Logout />} />
+
+
+      {/* PROTECTED ROUTES */}
 
       <Route
         path="/cars"
-        element={<Cars />}
+        element={
+          <ProtectedRoute>
+            <Cars />
+          </ProtectedRoute>
+        }
       />
 
       <Route
         path="/cars/:id"
-        element={<CarDetails />}
+        element={
+          <ProtectedRoute>
+            <CarDetails />
+          </ProtectedRoute>
+        }
       />
-
-      <Route
-        path="/register"
-        element={<Register />}
-      />
-
-      <Route
-        path="/login"
-        element={<Login />}
-      />
-
-      {/* Protected Add Car */}
 
       <Route
         path="/add-car"
@@ -57,8 +56,6 @@ function AppRoutes() {
         }
       />
 
-      {/* Protected Edit Car */}
-
       <Route
         path="/edit-car/:id"
         element={
@@ -68,18 +65,16 @@ function AppRoutes() {
         }
       />
 
-      {/* Logout */}
-
-      <Route
-        path="/logout"
-        element={<Logout />}
-      />
       <Route
         path="/favorites"
-        element={<Favorites/>}
+        element={
+          <ProtectedRoute>
+            <Favorites />
+          </ProtectedRoute>
+        }
       />
-    </Routes>
 
+    </Routes>
   );
 }
 
