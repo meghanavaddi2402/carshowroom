@@ -15,7 +15,7 @@ function Navbar() {
     <nav>
 
       <div className="logo">
-        CAR SHOWROOM
+        CARVISTA
       </div>
 
       <div className="nav-links">
