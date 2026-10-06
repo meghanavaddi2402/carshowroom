@@ -1,11 +1,19 @@
 {
   "users": [
     {
-      "id": "1",
-      "name": "meghana",
-      "email": "meghana@gmail.com",
-      "password": "maggi123"
-    },
+    "id": "1",
+    "name": "Admin",
+    "email": "admin@carvista.com",
+    "password": "Admin@123",
+    "role": "admin"
+  },
+  {
+    "id": "2",
+    "name": "Meghana",
+    "email": "meghana@gmail.com",
+    "password": "Meghana@123",
+    "role": "user"
+  },
     {
       "name": "vikram",
       "email": "vikaram@gmail.com",

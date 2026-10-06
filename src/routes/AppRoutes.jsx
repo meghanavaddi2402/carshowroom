@@ -12,6 +12,10 @@ import Logout from "../pages/Logout";
 
 import ProtectedRoute from "./ProtectedRoute";
 import AdminRoute from "./AdminRoute";
+import BookTestDrive from "../pages/BookTestDrive";
+import MyTestDrives from "../pages/MyTestDrives";
+import AdminTestDrives from "../pages/AdminTestDrives";
+import CompareCars from "../pages/CompareCars";
 
 function AppRoutes() {
 
@@ -48,6 +52,15 @@ function AppRoutes() {
         }
       />
 
+      <Route
+  path="/compare-cars"
+  element={
+    <ProtectedRoute>
+      <CompareCars />
+    </ProtectedRoute>
+  }
+/>
+
       {/* Car Details */}
       <Route
         path="/cars/:id"
@@ -57,6 +70,33 @@ function AppRoutes() {
           </ProtectedRoute>
         }
       />
+      <Route
+  path="/book-test-drive/:id"
+  element={
+    <ProtectedRoute>
+      <BookTestDrive />
+    </ProtectedRoute>
+  }
+/>
+
+
+    <Route
+  path="/my-test-drives"
+  element={
+    <ProtectedRoute>
+      <MyTestDrives />
+    </ProtectedRoute>
+  }
+/>
+
+    <Route
+  path="/admin/test-drives"
+  element={
+    <AdminRoute>
+      <AdminTestDrives />
+    </AdminRoute>
+  }
+/>
 
       {/* Admin Dashboard → Manage Cars */}
       <Route

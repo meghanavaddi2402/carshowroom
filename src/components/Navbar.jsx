@@ -7,7 +7,6 @@ function Navbar() {
   );
 
   const user = JSON.parse(localStorage.getItem("user"));
-  
 
   return (
     <nav>
@@ -35,46 +34,64 @@ function Navbar() {
       {/* RIGHT SIDE */}
       <div className="nav-links">
 
-  <Link to="/">
-    Home
+        <Link to="/">
+          Home
+        </Link>
+
+        {user && (
+          <Link to="/cars">
+            Cars
+          </Link>
+        )}
+        {user && (
+  <Link to="/compare-cars">
+    Compare Cars
   </Link>
+)}
+        {user && (
+          <Link to="/favorites">
+            Favourites ({favouriteCars.length})
+          </Link>
+        )}
 
-  {user && (
-    <Link to="/cars">
-      Cars
-    </Link>
-  )}
-
-  {user && (
-    <Link to="/favorites">
-      Favourites ({favouriteCars.length})
-    </Link>
-  )}
-
-
-  {user?.role === "admin" && (
-  <Link to="/admin">
-    Admin Dashboard
+        {/* USER: MY TEST DRIVES */}
+        {user && user.role !== "admin" && (
+  <Link to="/my-test-drives">
+    My Test Drives
   </Link>
 )}
 
-  {user ? (
-    <Link to="/logout">
-      Logout
-    </Link>
-  ) : (
-    <>
-      <Link to="/login">
-        Login
-      </Link>
+        {/* ADMIN: ADMIN DASHBOARD */}
+        {user?.role === "admin" && (
+          <Link to="/admin">
+            Admin Dashboard
+          </Link>
+        )}
 
-      <Link to="/register">
-        Register
-      </Link>
-    </>
-  )}
+        {/* ADMIN: ALL TEST DRIVE BOOKINGS */}
+        {user?.role === "admin" && (
+          <Link to="/admin/test-drives">
+            Test Drive Schedule
+          </Link>
+        )}
 
-</div>
+        {user ? (
+          <Link to="/logout">
+            Logout
+          </Link>
+        ) : (
+          <>
+            <Link to="/login">
+              Login
+            </Link>
+
+            <Link to="/register">
+              Register
+            </Link>
+          </>
+        )}
+
+      </div>
     </nav>
   );
 }

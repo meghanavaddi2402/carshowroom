@@ -1864,3 +1864,244 @@ select.input-success {
   }
 
 }
+/* Test Drive Button */
+.test-drive-btn {
+  margin-top: 20px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  background: #111;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.test-drive-btn:hover {
+  background: #333;
+  transform: translateY(-2px);
+}
+/* Test Drive Schedule */
+
+.booking-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.booking-card {
+  padding: 22px;
+  border-radius: 10px;
+  background: white;
+  color: #222;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.booking-card h2 {
+  margin-bottom: 18px;
+  color: #111;
+}
+
+.booking-card p {
+  margin: 10px 0;
+  color: #333;
+}
+
+.status-pending {
+  color: #d97706;
+  font-weight: bold;
+}
+
+.status-confirmed {
+  color: #15803d;
+  font-weight: bold;
+}
+
+.status-cancelled {
+  color: #dc2626;
+  font-weight: bold;
+}
+
+.status-completed {
+  color: #2563eb;
+  font-weight: bold;
+}
+
+.booking-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.booking-actions button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+}
+/* =========================
+   COMPARE CARS
+========================= */
+
+.compare-page {
+  padding: 40px;
+  min-height: 80vh;
+}
+
+.compare-page h1 {
+  text-align: center;
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.compare-subtitle {
+  text-align: center;
+  margin-bottom: 35px;
+  color: #ccc;
+  font-size: 17px;
+}
+
+/* CAR SELECTION */
+
+.compare-selection {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(220px, 1fr)
+  );
+  gap: 20px;
+}
+
+.compare-car-card {
+  background: #11151a;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 18px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.compare-car-card:hover {
+  transform: translateY(-4px);
+}
+
+.compare-car-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.compare-car-card h3 {
+  margin: 15px 0 8px;
+  font-size: 22px;
+}
+
+.compare-car-card p {
+  font-size: 17px;
+  margin-bottom: 15px;
+}
+
+.selected-car {
+  border: 2px solid #d4af37;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.25);
+}
+
+.compare-select-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  background: #d4af37;
+  color: #111;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.compare-select-btn:hover {
+  background: #f0c94b;
+}
+
+/* SUMMARY */
+
+.compare-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 35px 0 20px;
+}
+
+.compare-summary h2 {
+  margin: 0;
+}
+
+.clear-compare-btn {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  background: #dc2626;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* COMPARISON TABLE */
+
+.comparison-table-container {
+  margin-top: 30px;
+  overflow-x: auto;
+}
+
+.comparison-table-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  color: #222;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: 16px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.comparison-table th {
+  background: #111;
+  color: white;
+  font-size: 18px;
+}
+
+.comparison-table td:first-child {
+  font-weight: bold;
+  background: #f3f3f3;
+}
+
+.comparison-table tr:hover td {
+  background: #f8f8f8;
+}
+
+/* MESSAGE */
+
+.compare-message {
+  margin: 40px auto;
+  padding: 30px;
+  max-width: 600px;
+  text-align: center;
+  border: 1px solid #333;
+  border-radius: 12px;
+}
+
+.compare-message h2 {
+  margin-bottom: 10px;
+}

@@ -1,10 +1,10 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import api from "../services/api";
 
 function CarDetails() {
-
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const [car, setCar] = useState(null);
 
@@ -13,21 +13,12 @@ function CarDetails() {
   }, [id]);
 
   async function getCar() {
-
     try {
-
-      const response = await api.get(
-        `/cars/${id}`
-      );
-
+      const response = await api.get(`/cars/${id}`);
       setCar(response.data);
-
     } catch (error) {
-
       console.log(error);
-
     }
-
   }
 
   if (!car) {
@@ -36,7 +27,6 @@ function CarDetails() {
 
   return (
     <div className="details">
-
       <img
         src={car.image}
         alt={car.name}
@@ -64,9 +54,17 @@ function CarDetails() {
 
       <h3>Price</h3>
       <p>
-        {Number(car.price).toLocaleString("en-IN")}
+        ₹{Number(car.price).toLocaleString("en-IN")}
       </p>
 
+      <button
+        className="test-drive-btn"
+        onClick={() =>
+          navigate(`/book-test-drive/${car.id}`)
+        }
+      >
+        Book Test Drive
+      </button>
     </div>
   );
 }
