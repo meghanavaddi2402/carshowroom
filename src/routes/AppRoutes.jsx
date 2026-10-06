@@ -6,37 +6,39 @@ import CarDetails from "../pages/CarDetails";
 import AddCar from "../pages/AddCar";
 import EditCar from "../pages/EditCar";
 import Favorites from "../pages/Favorites";
-import Login from "../pages/Login";
 import Register from "../pages/Register";
+import Login from "../pages/Login";
 import Logout from "../pages/Logout";
 
 import ProtectedRoute from "./ProtectedRoute";
 import AdminRoute from "./AdminRoute";
-import AdminDashboard from "../pages/AdminDashboard";
+
 function AppRoutes() {
+
   return (
     <Routes>
 
-      {/* PUBLIC ROUTES */}
-
-      <Route path="/" element={<Home />} />
-
-      <Route path="/login" element={<Login />} />
-
-      <Route path="/register" element={<Register />} />
-
-      <Route path="/logout" element={<Logout />} />
       <Route
-  path="/admin"
-  element={
-    <AdminRoute>
-      <AdminDashboard />
-    </AdminRoute>
-  }
-/>
+        path="/"
+        element={<Home />}
+      />
 
-      {/* PROTECTED ROUTES */}
+      <Route
+        path="/register"
+        element={<Register />}
+      />
 
+      <Route
+        path="/login"
+        element={<Login />}
+      />
+
+      <Route
+        path="/logout"
+        element={<Logout />}
+      />
+
+      {/* Cars - Logged-in users */}
       <Route
         path="/cars"
         element={
@@ -46,6 +48,7 @@ function AppRoutes() {
         }
       />
 
+      {/* Car Details */}
       <Route
         path="/cars/:id"
         element={
@@ -55,23 +58,37 @@ function AppRoutes() {
         }
       />
 
+      {/* Admin Dashboard → Manage Cars */}
       <Route
-  path="/add-car"
-  element={
-    <AdminRoute>
-      <AddCar />
-    </AdminRoute>
-  }
-/>
-      <Route
-  path="/edit-car/:id"
-  element={
-    <AdminRoute>
-      <EditCar />
-    </AdminRoute>
-  }
-/>
+        path="/admin"
+        element={
+          <AdminRoute>
+            <Cars />
+          </AdminRoute>
+        }
+      />
 
+      {/* Add Car - Admin Only */}
+      <Route
+        path="/add-car"
+        element={
+          <AdminRoute>
+            <AddCar />
+          </AdminRoute>
+        }
+      />
+
+      {/* Edit Car - Admin Only */}
+      <Route
+        path="/edit-car/:id"
+        element={
+          <AdminRoute>
+            <EditCar />
+          </AdminRoute>
+        }
+      />
+
+      {/* Favourites */}
       <Route
         path="/favorites"
         element={

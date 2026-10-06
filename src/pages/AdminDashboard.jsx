@@ -1,21 +1,22 @@
 import { Link } from "react-router-dom";
 
 function AdminDashboard() {
+
   return (
     <div className="admin-page">
+
       <h1>Admin Dashboard</h1>
 
-      <p>Welcome, Admin.</p>
+      <p>Welcome, Admin!</p>
 
       <div className="admin-actions">
-        <Link to="/add-car">
-          Add Car
-        </Link>
 
         <Link to="/cars">
           Manage Cars
         </Link>
+
       </div>
+
     </div>
   );
 }
