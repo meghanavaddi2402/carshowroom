@@ -62,7 +62,7 @@ The application supports two types of users:
 
 ---
 
-## 🛠️ Technologies Used
+##  Technologies Used
 
 | Technology | Purpose |
 |---|---|
