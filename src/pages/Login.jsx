@@ -3,14 +3,9 @@ import api from "../services/api";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import {
-  validateEmail
-} from "../utils/validation";
+import { validateEmail } from "../utils/validation";
 
-import {
-  setFavouriteCars
-} from "../features/favouriteCarSlice";
-
+import { setFavouriteCars } from "../features/favouriteCarSlice";
 
 function Login() {
 
@@ -22,7 +17,6 @@ function Login() {
 
   const [errors, setErrors] = useState({});
   const [serverError, setServerError] = useState("");
-
 
   // ========================================
   // VALIDATE LOGIN FORM
@@ -47,7 +41,6 @@ function Login() {
     return Object.keys(newErrors).length === 0;
   }
 
-
   // ========================================
   // LOGIN
   // ========================================
@@ -58,7 +51,6 @@ function Login() {
 
     setServerError("");
 
-    // Stop if validation fails
     if (!validateForm()) {
       return;
     }
@@ -67,11 +59,12 @@ function Login() {
 
       const response = await api.get("/users", {
         params: {
-          email: email.trim().toLowerCase(),
+          email: email.trim(),
           password: password
         }
       });
 
+      console.log("Login response:", response.data);
 
       // ========================================
       // USER FOUND
@@ -81,9 +74,10 @@ function Login() {
 
         const loggedInUser = response.data[0];
 
+        console.log("Logged in user:", loggedInUser);
 
         // ========================================
-        // SAVE LOGGED-IN USER
+        // SAVE USER
         // ========================================
 
         localStorage.setItem(
@@ -91,9 +85,8 @@ function Login() {
           JSON.stringify(loggedInUser)
         );
 
-
         // ========================================
-        // GET THIS USER'S FAVOURITES
+        // LOAD USER FAVOURITES
         // ========================================
 
         const favouriteKey =
@@ -101,41 +94,30 @@ function Login() {
             .trim()
             .toLowerCase()}`;
 
-
         const savedFavourites =
           localStorage.getItem(favouriteKey);
-
 
         const favouriteCars = savedFavourites
           ? JSON.parse(savedFavourites)
           : [];
 
-
-        // ========================================
-        // LOAD FAVOURITES INTO REDUX
-        // ========================================
-
         dispatch(
           setFavouriteCars(favouriteCars)
         );
 
+        // ========================================
+        // SUCCESS
+        // ========================================
 
-        alert("Login successful");
-
+        alert(
+          `Login successful! Welcome ${loggedInUser.name}`
+        );
 
         navigate("/");
 
-
         window.location.reload();
 
-      }
-
-
-      // ========================================
-      // USER NOT FOUND
-      // ========================================
-
-      else {
+      } else {
 
         setServerError(
           "Invalid email or password"
@@ -143,19 +125,15 @@ function Login() {
 
       }
 
-    }
+    } catch (error) {
 
-    catch (error) {
-
-      console.error(error);
+      console.error("Login error:", error);
 
       setServerError(
         "Unable to login. Please try again."
       );
-
     }
   }
-
 
   // ========================================
   // EMAIL CHANGE
@@ -173,7 +151,6 @@ function Login() {
     setServerError("");
   }
 
-
   // ========================================
   // PASSWORD CHANGE
   // ========================================
@@ -190,7 +167,6 @@ function Login() {
     setServerError("");
   }
 
-
   // ========================================
   // UI
   // ========================================
@@ -205,7 +181,6 @@ function Login() {
         <p className="auth-subtitle">
           Login to CARVISTA
         </p>
-
 
         <form onSubmit={handleSubmit}>
 
@@ -224,7 +199,6 @@ function Login() {
             </p>
           )}
 
-
           {/* PASSWORD */}
 
           <input
@@ -240,7 +214,6 @@ function Login() {
             </p>
           )}
 
-
           {/* SERVER ERROR */}
 
           {serverError && (
@@ -248,7 +221,6 @@ function Login() {
               {serverError}
             </p>
           )}
-
 
           {/* LOGIN BUTTON */}
 
@@ -266,6 +238,5 @@ function Login() {
     </div>
   );
 }
-
 
 export default Login;

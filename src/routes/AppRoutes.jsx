@@ -11,7 +11,8 @@ import Register from "../pages/Register";
 import Logout from "../pages/Logout";
 
 import ProtectedRoute from "./ProtectedRoute";
-
+import AdminRoute from "./AdminRoute";
+import AdminDashboard from "../pages/AdminDashboard";
 function AppRoutes() {
   return (
     <Routes>
@@ -25,7 +26,14 @@ function AppRoutes() {
       <Route path="/register" element={<Register />} />
 
       <Route path="/logout" element={<Logout />} />
-
+      <Route
+  path="/admin"
+  element={
+    <AdminRoute>
+      <AdminDashboard />
+    </AdminRoute>
+  }
+/>
 
       {/* PROTECTED ROUTES */}
 
@@ -48,22 +56,21 @@ function AppRoutes() {
       />
 
       <Route
-        path="/add-car"
-        element={
-          <ProtectedRoute>
-            <AddCar />
-          </ProtectedRoute>
-        }
-      />
-
+  path="/add-car"
+  element={
+    <AdminRoute>
+      <AddCar />
+    </AdminRoute>
+  }
+/>
       <Route
-        path="/edit-car/:id"
-        element={
-          <ProtectedRoute>
-            <EditCar />
-          </ProtectedRoute>
-        }
-      />
+  path="/edit-car/:id"
+  element={
+    <AdminRoute>
+      <EditCar />
+    </AdminRoute>
+  }
+/>
 
       <Route
         path="/favorites"

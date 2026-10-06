@@ -7,6 +7,7 @@ function Navbar() {
   );
 
   const user = JSON.parse(localStorage.getItem("user"));
+  
 
   return (
     <nav>
@@ -49,6 +50,13 @@ function Navbar() {
       Favourites ({favouriteCars.length})
     </Link>
   )}
+
+
+  {user?.role === "admin" && (
+  <Link to="/admin">
+    Admin Dashboard
+  </Link>
+)}
 
   {user ? (
     <Link to="/logout">

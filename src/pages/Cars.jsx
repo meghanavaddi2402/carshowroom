@@ -6,6 +6,9 @@ import CarCard from "../components/CarCard";
 
 function Cars() {
 
+  // Get logged-in user
+  const user = JSON.parse(localStorage.getItem("user"));
+
   const [cars, setCars] = useState([]);
 
   const [search, setSearch] = useState("");
@@ -78,17 +81,25 @@ function Cars() {
     let priceMatch = true;
 
     if (price === "low") {
-      priceMatch = Number(car.price) < 2000000;
+
+      priceMatch =
+        Number(car.price) < 2000000;
+
     }
 
     if (price === "medium") {
+
       priceMatch =
         Number(car.price) >= 2000000 &&
         Number(car.price) <= 4000000;
+
     }
 
     if (price === "high") {
-      priceMatch = Number(car.price) > 4000000;
+
+      priceMatch =
+        Number(car.price) > 4000000;
+
     }
 
     return (
@@ -126,13 +137,16 @@ function Cars() {
 
       <h1>Available Cars</h1>
 
-      <Link
-        className="add-btn"
-        to="/add-car"
-      >
-        Add Car
-      </Link>
+      {/* ADD CAR - ADMIN ONLY */}
 
+      {user?.role === "admin" && (
+        <Link
+          className="add-btn"
+          to="/add-car"
+        >
+          Add Car
+        </Link>
+      )}
 
       {/* FILTERS */}
 
@@ -146,7 +160,6 @@ function Cars() {
             setSearch(e.target.value)
           }
         />
-
 
         <select
           value={brand}
@@ -181,7 +194,6 @@ function Cars() {
 
         </select>
 
-
         <select
           value={fuel}
           onChange={(e) =>
@@ -211,7 +223,6 @@ function Cars() {
 
         </select>
 
-
         <select
           value={price}
           onChange={(e) =>
@@ -237,7 +248,6 @@ function Cars() {
 
         </select>
 
-
         <select
           value={sort}
           onChange={(e) =>
@@ -261,7 +271,6 @@ function Cars() {
 
       </div>
 
-
       {/* CARS */}
 
       <div className="card-container">
@@ -274,6 +283,7 @@ function Cars() {
               key={car.id}
               car={car}
               onDelete={deleteCar}
+              isAdmin={user?.role === "admin"}
             />
 
           ))
@@ -291,6 +301,7 @@ function Cars() {
     </div>
 
   );
+
 }
 
 export default Cars;
