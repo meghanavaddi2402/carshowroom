@@ -10,9 +10,7 @@ function Navbar() {
 
   return (
     <nav>
-      {/* LEFT SIDE */}
       <div className="nav-left">
-
         <Link to="/" className="logo">
           CARVISTA
         </Link>
@@ -28,51 +26,50 @@ function Navbar() {
             </span>
           </div>
         )}
-
       </div>
 
-      {/* RIGHT SIDE */}
       <div className="nav-links">
 
-        <Link to="/">
-          Home
-        </Link>
+        <Link to="/">Home</Link>
 
-        {user && (
+        {user && user.role !== "admin" && (
           <Link to="/cars">
             Cars
           </Link>
         )}
-        {user && (
-  <Link to="/compare-cars">
-    Compare Cars
-  </Link>
-)}
-        {user && (
+
+        {user?.role !== "admin" && user && (
+          <Link to="/compare-cars">
+            Compare Cars
+          </Link>
+        )}
+
+        {user?.role !== "admin" && user && (
           <Link to="/favorites">
             Favourites ({favouriteCars.length})
           </Link>
         )}
 
-        {/* USER: MY TEST DRIVES */}
         {user && user.role !== "admin" && (
-  <Link to="/my-test-drives">
-    My Test Drives
-  </Link>
-)}
-
-        {/* ADMIN: ADMIN DASHBOARD */}
-        {user?.role === "admin" && (
-          <Link to="/admin">
-            Admin Dashboard
+          <Link to="/my-test-drives">
+            My Test Drives
           </Link>
         )}
 
-        {/* ADMIN: ALL TEST DRIVE BOOKINGS */}
         {user?.role === "admin" && (
-          <Link to="/admin/test-drives">
-            Test Drive Schedule
-          </Link>
+          <>
+            <Link to="/admin/inventory">
+              Inventory
+            </Link>
+
+            <Link to="/admin/analytics">
+              Analytics
+            </Link>
+
+            <Link to="/admin/test-drives">
+              Test Drive Schedule
+            </Link>
+          </>
         )}
 
         {user ? (
@@ -81,13 +78,8 @@ function Navbar() {
           </Link>
         ) : (
           <>
-            <Link to="/login">
-              Login
-            </Link>
-
-            <Link to="/register">
-              Register
-            </Link>
+            <Link to="/login">Login</Link>
+            <Link to="/register">Register</Link>
           </>
         )}
 

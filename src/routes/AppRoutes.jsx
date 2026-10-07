@@ -16,6 +16,8 @@ import BookTestDrive from "../pages/BookTestDrive";
 import MyTestDrives from "../pages/MyTestDrives";
 import AdminTestDrives from "../pages/AdminTestDrives";
 import CompareCars from "../pages/CompareCars";
+import Inventory from "../pages/Inventory";
+import Analytics from "../pages/Analytics";
 
 function AppRoutes() {
 
@@ -98,15 +100,23 @@ function AppRoutes() {
   }
 />
 
-      {/* Admin Dashboard → Manage Cars */}
       <Route
-        path="/admin"
-        element={
-          <AdminRoute>
-            <Cars />
-          </AdminRoute>
-        }
-      />
+  path="/admin/inventory"
+  element={
+    <AdminRoute>
+      <Inventory />
+    </AdminRoute>
+  }
+/>
+
+<Route
+  path="/admin/analytics"
+  element={
+    <AdminRoute>
+      <Analytics />
+    </AdminRoute>
+  }
+/>
 
       {/* Add Car - Admin Only */}
       <Route
