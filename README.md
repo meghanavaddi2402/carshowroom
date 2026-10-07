@@ -1,155 +1,151 @@
-CarVista — Car Showroom Management System
+CarVista - Car Showroom Management System
 
-Discover. Choose. Drive.
+CarVista is a web-based car showroom management system built using React.js and JSON Server. It allows customers to browse vehicles, compare cars, book test drives, and manage their bookings. Administrators can manage vehicle inventory, test-drive schedules, and showroom analytics.
 
-CarVista is a modern car showroom web application built using React.js and JSON Server. It allows users to explore available cars, search and filter vehicles, add favourites, compare multiple cars, and book test drives.
-
-The application also provides an Admin Dashboard for managing cars and handling customer test-drive schedules.
+Tagline: Discover. Choose. Drive.
 
 Features
-User Features
-User Registration
-User Login and Logout
-Protected Routes
-Browse Available Cars
-Search Cars by Name
-Filter Cars by:
+Customer Features
+User registration and login
+Logout functionality
+Protected routes for authenticated users
+Browse available cars
+Search cars by name or model
+Filter cars by:
 Brand
-Fuel Type
-Price Range
-Sort Cars by Price
-View Detailed Car Information
-Add Cars to Favourites
-View Favourite Cars
-Compare Multiple Cars
-Book a Test Drive
-Choose Test Drive Date and Time
-Choose Test Drive Location
-Showroom
-Home
-View Personal Test Drive Schedule
-Track Test Drive Status
-Admin Features
-Admin Login
-Protected Admin Routes
-Admin Dashboard
-Add New Cars
-Edit Existing Cars
-Delete Cars
-View All Cars
-View All Customer Test Drives
-Confirm Test Drive Bookings
-Cancel Test Drive Bookings
-Mark Test Drives as Completed
-Manage Test Drive Schedule
+Fuel type
+Price range
+Sort cars by price
+View detailed car information
+Add cars to favourites
+Remove cars from favourites
+Compare up to 4 cars
+Book a test drive
+Select test-drive date and time
+Choose showroom or home test drive
 Prevent overlapping test-drive slots
+View personal test-drive bookings
+Track booking status
+Admin Features
+Admin authentication and protected routes
+Add new vehicles
+Edit existing vehicles
+Delete vehicles
+Vehicle inventory management
+Search and filter inventory
+View total vehicles
+View available brands
+View fuel-type statistics
+View showroom analytics
+View all customer test-drive bookings
+Confirm test-drive bookings
+Cancel test-drive bookings
+Mark completed test drives
 Car Comparison
 
-CarVista provides a dedicated Compare Cars feature.
+CarVista provides a car comparison feature that allows customers to select up to four vehicles and compare their specifications.
 
-Users can select up to four cars and compare their specifications.
+The comparison includes:
 
-Comparison includes
 Brand
 Model
 Year
 Price
-Fuel Type
+Fuel type
 Transmission
 Color
 
-Example:
+This allows customers to compare multiple vehicles before making a decision.
 
-Specification	Creta	Seltos	XUV700
-Brand	Hyundai	Kia	Mahindra
-Model	Creta SX	Seltos GTX	XUV700 AX7
-Year	2025	2025	2025
-Price	₹18.5L	₹21L	₹25L
-Fuel	Petrol	Petrol	Diesel
-Transmission	Automatic	Automatic	Automatic
 Test Drive Booking
 
-Users can book test drives for their selected cars.
+Customers can book test drives by providing:
 
-The booking system collects:
-
-Customer Name
+Name
 Email
-Phone Number
-Car
-Preferred Date
-Preferred Time
+Phone number
+Date
+Time
 Location
-Address for Home Test Drive
-Booking Status
+Address when required
 
-A test drive can have the following statuses:
+Each test drive is treated as a one-hour booking slot.
+
+The application checks existing bookings and prevents customers from selecting an overlapping time slot.
+
+Booking statuses include:
 
 Pending
 Confirmed
-Cancelled
 Completed
-Slot Management
+Cancelled
+Admin Inventory Management
 
-Each test drive is treated as a one-hour slot.
+The Vehicle Inventory page allows administrators to manage showroom vehicles from a centralized interface.
 
-The system checks existing bookings before accepting a new booking.
+Administrators can:
 
-For example:
+View all vehicles
+Search vehicles
+Filter vehicles by brand
+Add vehicles
+Edit vehicles
+Delete vehicles
+View vehicle price and specifications
+Admin Analytics
 
-10:00 AM - 11:00 AM
+The Analytics page provides an overview of showroom activity.
 
-A new booking at:
+It displays:
 
-10:30 AM
-
-will be rejected because it overlaps with the existing booking.
-
-A booking at:
-
-11:00 AM
-
-can be accepted.
-
-Cancelled bookings do not block future slots.
-
+Total vehicles
+Registered customers
+Total test drives
+Pending bookings
+Confirmed bookings
+Completed bookings
+Cancelled bookings
+Fuel type distribution
+Inventory by brand
+Most available vehicle brand
 Technology Stack
 Frontend
 React.js
 React Router
 Redux Toolkit
 Axios
+JavaScript
+HTML
 CSS
+Vite
 Backend
 JSON Server
 REST API
-JSON Database
+JSON database
 Development Tools
 Visual Studio Code
 Git
 GitHub
-Vite
-Deployment
-Vercel — Frontend
-Render — Backend
+Vercel
+Render
 Project Structure
-carshowroom/
+carshowroom
 │
-├── public/
+├── public
 │
-├── src/
+├── src
 │   │
-│   ├── app/
+│   ├── app
 │   │   └── store.js
 │   │
-│   ├── components/
-│   │   ├── Navbar.jsx
-│   │   └── CarCard.jsx
+│   ├── components
+│   │   ├── CarCard.jsx
+│   │   └── Navbar.jsx
 │   │
-│   ├── features/
+│   ├── features
 │   │   └── favouriteCarSlice.js
 │   │
-│   ├── pages/
+│   ├── pages
 │   │   ├── Home.jsx
 │   │   ├── Cars.jsx
 │   │   ├── CarDetails.jsx
@@ -162,17 +158,19 @@ carshowroom/
 │   │   ├── BookTestDrive.jsx
 │   │   ├── MyTestDrives.jsx
 │   │   ├── AdminTestDrives.jsx
-│   │   └── CompareCars.jsx
+│   │   ├── CompareCars.jsx
+│   │   ├── Inventory.jsx
+│   │   └── Analytics.jsx
 │   │
-│   ├── routes/
+│   ├── routes
 │   │   ├── AppRoutes.jsx
 │   │   ├── ProtectedRoute.jsx
 │   │   └── AdminRoute.jsx
 │   │
-│   ├── services/
+│   ├── services
 │   │   └── api.js
 │   │
-│   ├── utils/
+│   ├── utils
 │   │   └── validation.js
 │   │
 │   ├── App.jsx
@@ -187,113 +185,111 @@ Authentication
 
 CarVista uses role-based authentication.
 
-User
+Two types of users are supported:
 
-Normal users can:
-
-Register
-Login
-Browse Cars
-Favourite Cars
-Compare Cars
-Book Test Drives
-View Their Test Drives
+Customer
 Admin
 
-Administrators can:
-
-Manage Cars
-Add Cars
-Edit Cars
-Delete Cars
-View All Test Drives
-Confirm Bookings
-Cancel Bookings
-Complete Bookings
-
-Admin-only routes are protected using AdminRoute.
-
-Application Flow
-                    CARVISTA
-                       |
-          +------------+------------+
-          |                         |
-        USER                      ADMIN
-          |                         |
-       Login                     Login
-          |                         |
-          v                         v
-     Browse Cars              Admin Dashboard
-          |                         |
-     +----+----+              +-----+-----+
-     |    |    |              |           |
- Favourite Compare       Manage Cars  Test Drives
-     |    |                         |
-     |    |                         |
-     +----+------+                  |
-                 v                  v
-            Car Details       Booking Management
-                 |
-                 v
-           Book Test Drive
-                 |
-                 v
-          My Test Drives
-API Endpoints
-
-The application uses JSON Server REST APIs.
+Customer users can access customer-specific features such as:
 
 Cars
-GET    /cars
-GET    /cars/:id
-POST   /cars
-PUT    /cars/:id
-DELETE /cars/:id
+Favourites
+Compare Cars
+Test Drive Booking
+My Test Drives
+
+Administrators can access:
+
+Vehicle Inventory
+Add Vehicle
+Edit Vehicle
+Delete Vehicle
+Test Drive Schedule
+Analytics
+
+Protected routes prevent users from accessing pages without authentication.
+
+Admin routes additionally verify that the logged-in user's role is admin.
+
+API Endpoints
+
+The application communicates with the JSON Server backend using Axios.
+
+Cars
+GET     /cars
+GET     /cars/:id
+POST    /cars
+PUT     /cars/:id
+DELETE  /cars/:id
 Users
-GET    /users
-POST   /users
+GET     /users
+POST    /users
 Test Drives
-GET    /testDrives
-POST   /testDrives
-PATCH  /testDrives/:id
+GET     /testDrives
+POST    /testDrives
+PATCH   /testDrives/:id
+DELETE  /testDrives/:id
 Installation
-1. Clone the repository
+
+Clone the repository:
+
 git clone https://github.com/meghanavaddi2402/carshowroom.git
-2. Open the project
+
+Navigate to the project:
+
 cd carshowroom
-3. Install dependencies
+
+Install dependencies:
+
 npm install
-4. Start the React application
+
+Start the React application:
+
 npm run dev
 
-The frontend will normally run at:
+The application will normally run at:
 
 http://localhost:5173
-Running the Backend Locally
+Backend Setup
 
-The backend uses JSON Server.
+The backend is maintained separately using JSON Server.
 
-Navigate to the backend directory:
+Clone the backend repository:
 
-cd backend
+git clone https://github.com/meghanavaddi2402/car_showroom_backend-.git
 
-Run:
+Navigate to the backend:
 
-npx json-server --watch db.json --port 3000
+cd car_showroom_backend-
 
-The API will be available at:
+Install dependencies:
+
+npm install
+
+Start the backend:
+
+npm start
+
+The local backend runs on:
 
 http://localhost:3000
+API Configuration
 
-For example:
+The frontend API configuration is maintained in:
 
-http://localhost:3000/cars
-http://localhost:3000/testDrives
-Backend Configuration
+src/services/api.js
 
-The frontend communicates with the backend using Axios.
+For local development:
 
-Example:
+import axios from "axios";
+
+const api = axios.create({
+  baseURL: "http://localhost:3000"
+});
+
+export default api;
+
+For the deployed application:
 
 import axios from "axios";
 
@@ -302,69 +298,103 @@ const api = axios.create({
 });
 
 export default api;
-
-For local development, the base URL can be changed to:
-
-const api = axios.create({
-  baseURL: "http://localhost:3000"
-});
-Live Application
+Deployment
 Frontend
 
-https://carshowroom-zeta.vercel.app
+The React frontend is deployed using Vercel.
 
-Backend API
+Production URL:
+
+https://carshowroom-zeta.vercel.app
+Backend
+
+The JSON Server backend is deployed using Render.
+
+Backend URL:
 
 https://car-showroom-api-552g.onrender.com
-
-Route Protection
-
-CarVista uses protected routes to control access.
-
-Protected User Routes
-/cars
-/cars/:id
-/favorites
-/book-test-drive/:id
-/my-test-drives
-/compare-cars
-Protected Admin Routes
-/admin
-/add-car
-/edit-car/:id
-/admin/test-drives
-
-Unauthorized users are redirected to the appropriate page.
-
-Responsive Design
-
-The application is designed to work across different screen sizes, including:
-
-Desktop
-Laptop
-Tablet
-Mobile
-
-Through this project, I learned and practiced:
-
-React component development
-React Router
-Protected routes
-Role-based access control
-Redux Toolkit
-REST API integration
-Axios
-Form validation
-Local storage
+Application Architecture
+Customer
+   |
+   v
+CarVista React Frontend
+   |
+   | Axios REST API
+   v
+Render Backend
+   |
+   v
 JSON Server
-CRUD operations
-Git and GitHub
-Vercel deployment
-Render deployment
-Frontend and backend integration
+   |
+   v
+db.json
+Main Application Flow
+User Registration
+        |
+        v
+      Login
+        |
+        v
+   Browse Cars
+        |
+        +----------------+
+        |                |
+        v                v
+  Car Details       Compare Cars
+        |
+        v
+ Book Test Drive
+        |
+        v
+ My Test Drives
 
-Conclusion
+Admin flow:
 
-CarVista is a simple and user-friendly car showroom management application that combines car browsing, search and filtering, favourites, authentication, form validation, and admin-based car management.
+Admin Login
+    |
+    v
+Admin Dashboard
+    |
+    +------------------+
+    |        |         |
+    v        v         v
+Inventory Analytics Test Drive Schedule
+    |
+    +----------+
+    |          |
+    v          v
+Add/Edit    Delete
+Vehicle     Vehicle
+Validation
 
-The project demonstrates the practical use of React.js, Redux Toolkit, REST APIs, role-based access control, and cloud deployment in a full-stack web application.
+The application includes client-side validation for important forms.
+
+Validation includes:
+
+Name validation
+Email validation
+Password validation
+Confirm password validation
+Phone number validation
+Year validation
+Price validation
+Image URL validation
+Required field validation
+Test-drive date validation
+Test-drive time conflict validation
+Future Enhancements
+
+Possible future improvements include:
+
+Online payment integration
+Advanced car recommendation system
+Car image gallery
+Vehicle availability tracking
+Customer reviews and ratings
+Email notifications
+SMS notifications
+Advanced sales analytics
+Downloadable reports
+Dealer/customer messaging
+AI-based car recommendation
+Production-ready authentication and encrypted passwords
